@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { Search, Mail, Zap, Clock, Filter, CheckCircle, X, ChevronDown, Moon, Sun, Sparkles, Shield, CreditCard, TrendingUp, AlertCircle, Loader2, Star, Users, ArrowRight } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Link } from 'react-router-dom'
-
 
 const WalrusSearchLanding = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -347,7 +345,20 @@ const WalrusSearchLanding = () => {
             </motion.p>
           </div>
 
+          
+          {/* Mini Waitlist button just above the demo */}
+          <div className="text-center -mt-4 mb-8">
+            <button
+              onClick={() => document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' })}
+              className={`${darkMode ? 'bg-gray-800 hover:bg-gray-700 text-gray-200 border-gray-700' : 'bg-white hover:bg-gray-50 text-gray-700 border-gray-300'} inline-flex items-center gap-2 border rounded-lg px-4 py-2 text-sm transition-colors`}
+            >
+              <Users className="w-4 h-4" />
+              Join the Waitlist
+            </button>
+          </div>
+
           {/* Animated Demo */}
+
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -671,7 +682,7 @@ const WalrusSearchLanding = () => {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Waitlist - Left Card (Free) */}
-            <motion.div
+            <motion.div id="waitlist"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -679,22 +690,21 @@ const WalrusSearchLanding = () => {
               className={`p-8 rounded-2xl border ${darkMode ? 'bg-gray-900/50 border-gray-800' : 'bg-white border-gray-200'} backdrop-blur-sm`}
             >
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">Join Waitlist</h3>
+                <h3 className="text-2xl font-bold mb-2">Join the Waitlist</h3>
                 <div className="flex items-end justify-center space-x-2 mb-2">
                   <span className="text-5xl font-bold text-green-400">Free</span>
                 </div>
                 <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Get instant access on launch day
+                  Early access + 25% off for first 3 months at launch
+                 Get instant access on launch day
                 </p>
               </div>
 
               <ul className="space-y-4 mb-8">
                 {[
-                  "1 free search on launch day",
-                  "Launch: November 30, 2025",
-                  "No credit card required",
-                  "Early access to features",
-                  "Launch day email notification"
+                  "Early access invite",
+                  "25% off first 3 months at launch",
+                  "No credit card required"
                 ].map((feature, i) => (
                   <li key={i} className="flex items-start space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
@@ -756,22 +766,20 @@ const WalrusSearchLanding = () => {
               <div className="text-center mb-8">
                 <h3 className="text-2xl font-bold mb-2">Founding Member</h3>
                 <div className="flex items-end justify-center space-x-2 mb-2">
-                  <span className="text-5xl font-bold">$28</span>
-                  <span className={`text-lg mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>one-time</span>
+                  <span className="text-5xl font-bold">$7</span>
+                  <span className={`text-lg mb-2 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>per month, forever</span>
                 </div>
                 <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                  Unlimited searches for 3 months
+                 Lock 75% off for life
                 </p>
               </div>
 
               <ul className="space-y-4 mb-8">
                 {[
-                  "Unlimited AI searches for 3 months",
-                  "Get instant access on launch day",
-                  "Then only $19/month (can cancel)",
-                  "Priority support & feedback",
-                  "Founding member badge",
-                  "Early access to all new features"
+                  "$7/month forever (75% off list)",
+                  "Launch day access",
+                  "Priority support & feature voting",
+                  "Founding member badge"
                 ].map((feature, i) => (
                   <li key={i} className="flex items-start space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
@@ -798,7 +806,7 @@ const WalrusSearchLanding = () => {
 
               <div className={`mt-6 p-4 rounded-lg border ${darkMode ? 'bg-purple-900/20 border-purple-500/30' : 'bg-purple-50 border-purple-200'}`}>
                 <p className={`text-sm text-center ${darkMode ? 'text-purple-300' : 'text-purple-700'}`}>
-                  💎 <span className="font-semibold">Value:</span> $171 for just $28 (84% off)
+                  💎 <span className="font-semibold">Value:</span> $29/mo for just $7/mo — 75% off for life
                 </p>
               </div>
 
@@ -864,20 +872,12 @@ const WalrusSearchLanding = () => {
                 answer: "F5Bot sends you EVERY mention of your keywords, flooding your inbox with 90% irrelevant posts. ContextSearch uses AI to understand the actual context and intent behind discussions, filtering out noise before it reaches you. You get only high-quality, relevant threads with relevance scores."
               },
               {
-                question: "What happens after the 3-month founding member period?",
-                answer: "After 3 months of unlimited searches, your founding membership converts to just $19/month (you can cancel anytime). Regular pricing will be $29/month, so you'll save $10/month forever as a founding member. You're locked into this special rate for life."
-              },
-              {
-                question: "When does this launch?",
+                question: "What do I get as a founding member?",
                 answer: "November 30, 2025 - exactly 1 month away! Both waitlist members and founding members get instant access on launch day. Founding member spots are limited to the first 100 people, and we're already 63% full."
               },
               {
                 question: "What if I join the waitlist instead of becoming a founding member?",
-                answer: "Waitlist members get 1 free search on launch day and can purchase individual searches or subscribe at regular pricing ($29/month). Founding members get unlimited searches for 3 months + lifetime discount pricing. The founding offer expires when we hit 100 members."
-              },
-              {
-                question: "How long does a search take?",
-                answer: "Most searches complete in under 3 minutes. Our AI analyzes thousands of Reddit threads in real-time, understanding context just like a human would read each post. You'll get an email when your results are ready."
+                answer: "Waitlist = early access + 25% off for your first 3 months at launch. Founders = $7/month for life. The founders offer is seat-limited and may close at any time.",
               },
               {
                 question: "What kind of searches work best?",
@@ -954,7 +954,7 @@ const WalrusSearchLanding = () => {
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold py-4 px-8 rounded-xl text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center space-x-2"
               >
-                <span>Become Founding Member - $28</span>
+                <span>Become Founding Member - $7/mo for life</span>
                 <ArrowRight className="w-5 h-5" />
               </motion.a>
               <motion.button
@@ -967,7 +967,7 @@ const WalrusSearchLanding = () => {
               </motion.button>
             </div>
             <p className={`text-sm mt-6 ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>
-              ✓ Unlimited searches for 3 months  •  ✓ Then only $19/month  •  ✓ Launch day access
+              ✓ $7/mo for life (75% off)  •  ✓ Limited seats  •  ✓ Launch day access
             </p>
           </div>
         </motion.div>
@@ -984,25 +984,25 @@ const WalrusSearchLanding = () => {
           </div>
           
           <div className="flex flex-wrap items-center justify-center gap-6 mb-6">
-            <Link
-              to="/privacy"
+            <a 
+              href="/privacy" 
               className={`text-sm ${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors`}
             >
               Privacy Policy
-            </Link>
+            </a>
             <span className={`text-sm ${darkMode ? 'text-gray-700' : 'text-gray-300'}`}>|</span>
-            <Link
-              to="/terms"
+            <a 
+              href="/terms" 
               className={`text-sm ${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors`}
             >
               Terms of Service
-            </Link>
+            </a>
             <span className={`text-sm ${darkMode ? 'text-gray-700' : 'text-gray-300'}`}>|</span>
             <a 
-              href="mailto:support@walrussearch.ai" 
+              href="mailto:l.foreman201@gmail.com" 
               className={`text-sm ${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors`}
             >
-              Contact: support@walrussearch.ai
+              Contact: l.foreman201@gmail.com
             </a>
           </div>
           
@@ -1011,7 +1011,6 @@ const WalrusSearchLanding = () => {
           </p>
         </div>
       </footer>
-
     </div>
   );
 };

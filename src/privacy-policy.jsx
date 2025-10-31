@@ -15,7 +15,6 @@ const PrivacyPolicy = () => {
           <span>Back to Home</span>
         </Link>
 
-
         <h1 className="text-4xl md:text-5xl font-bold mb-8">Privacy Policy</h1>
         
         <div className="prose prose-invert max-w-none space-y-8">

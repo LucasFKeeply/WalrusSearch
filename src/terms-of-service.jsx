@@ -15,7 +15,6 @@ const TermsOfService = () => {
           <span>Back to Home</span>
         </Link>
 
-
         <h1 className="text-4xl md:text-5xl font-bold mb-8">Terms of Service</h1>
         
         <div className="prose prose-invert max-w-none space-y-8">
@@ -48,33 +47,37 @@ const TermsOfService = () => {
             </ul>
           </section>
 
+          {/* UPDATED: Pricing now matches $7/mo for life + waitlist 25% for 3 months */}
           <section>
             <h2 className="text-2xl font-bold mb-4">3. Pricing and Payment</h2>
             <p className="text-gray-300 mb-4">
               <strong>Founding Member Plan:</strong>
             </p>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4 mb-4">
-              <li>One-time payment of $28 for unlimited searches for 3 months</li>
-              <li>Automatically converts to $19/month after 3 months (cancellable anytime)</li>
-              <li>All prices are in USD</li>
-              <li>Payments are processed securely through Stripe</li>
+              <li><strong>$7 per month, for life</strong> (75% off the public list price)</li>
+              <li>Price lock is seat-limited and may be withdrawn for new sign-ups at any time</li>
+              <li>If you cancel, you may not be able to re-activate at the lifetime rate</li>
+              <li>All prices are in USD; payments are processed securely through Stripe</li>
             </ul>
             <p className="text-gray-300 mb-4">
               <strong>Waitlist Members:</strong>
             </p>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-              <li>Receive 1 free search on launch day (November 30, 2025)</li>
-              <li>Can purchase additional searches or subscribe at regular pricing</li>
+              <li>Receive an invite when early access opens</li>
+              <li>Get <strong>25% off for your first 3 months</strong> at launch</li>
+              <li>No lifetime price lock is included with the waitlist</li>
             </ul>
           </section>
 
+          {/* UPDATED: Removed reference to “3-month founding period”; clarified lifetime lock behavior */}
           <section>
             <h2 className="text-2xl font-bold mb-4">4. Cancellation and Refunds</h2>
             <ul className="list-disc list-inside text-gray-300 space-y-2 ml-4">
-              <li>You may cancel your subscription at any time</li>
-              <li>Founding members can cancel before the 3-month period ends to avoid monthly charges</li>
+              <li>You may cancel your subscription at any time from your account settings</li>
+              <li>After cancellation, access continues until the end of the current billing period</li>
+              <li>Founding members who cancel may not be able to re-activate the $7/month lifetime price</li>
               <li>No refunds are provided for partial months</li>
-              <li>Refund requests must be submitted within 30 days of purchase</li>
+              <li>Refund requests (where applicable) must be submitted within 30 days of purchase</li>
             </ul>
           </section>
 
@@ -167,7 +170,7 @@ const TermsOfService = () => {
               Questions about these Terms of Service? Contact us at:
             </p>
             <p className="text-purple-400 mt-2">
-              support@contextsearch.ai
+              l.foreman201@gmail.com
             </p>
           </section>
         </div>
