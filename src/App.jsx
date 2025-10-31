@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { Search, Mail, Zap, Clock, Filter, CheckCircle, X, ChevronDown, Moon, Sun, Sparkles, Shield, CreditCard, TrendingUp, AlertCircle, Loader2, Star, Users, ArrowRight } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Link } from 'react-router-dom'
+
 
 const WalrusSearchLanding = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -982,19 +984,19 @@ const WalrusSearchLanding = () => {
           </div>
           
           <div className="flex flex-wrap items-center justify-center gap-6 mb-6">
-            <a 
-              href="/privacy" 
+            <Link
+              to="/privacy"
               className={`text-sm ${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors`}
             >
               Privacy Policy
-            </a>
+            </Link>
             <span className={`text-sm ${darkMode ? 'text-gray-700' : 'text-gray-300'}`}>|</span>
-            <a 
-              href="/terms" 
+            <Link
+              to="/terms"
               className={`text-sm ${darkMode ? 'text-gray-400 hover:text-purple-400' : 'text-gray-600 hover:text-purple-600'} transition-colors`}
             >
               Terms of Service
-            </a>
+            </Link>
             <span className={`text-sm ${darkMode ? 'text-gray-700' : 'text-gray-300'}`}>|</span>
             <a 
               href="mailto:support@walrussearch.ai" 
@@ -1009,6 +1011,7 @@ const WalrusSearchLanding = () => {
           </p>
         </div>
       </footer>
+
     </div>
   );
 };

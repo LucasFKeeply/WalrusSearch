@@ -1,17 +1,20 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
 
 const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-gray-950 text-white">
       <div className="max-w-4xl mx-auto px-4 py-16">
-        <a 
-          href="/" 
+        <Link 
+          to="/" 
           className="inline-flex items-center space-x-2 text-purple-400 hover:text-purple-300 mb-8 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Home</span>
-        </a>
+        </Link>
+
 
         <h1 className="text-4xl md:text-5xl font-bold mb-8">Terms of Service</h1>
         
